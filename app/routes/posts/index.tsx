@@ -1,4 +1,6 @@
 import { Link, useLoaderData } from "remix";
+import { getPosts } from "~/post";
+import type { Post } from "~/post";
 
 export type Post = {
   slug: string;
@@ -6,17 +8,7 @@ export type Post = {
 };
 
 export const loader = () => {
-  const posts: Post[] = [
-    {
-      slug: "my-first-post",
-      title: "My First Post"
-    },
-    {
-      slug: "90s-mixtape",
-      title: "A Mixtape I Made Just For You"
-    }
-  ];
-  return posts;
+  return getPosts();
 };
 
 export default function Posts() {
